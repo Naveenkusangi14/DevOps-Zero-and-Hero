@@ -22,6 +22,6 @@ terraform plan -var-file="terraform-filename(stage).tfvars"
 
 terraform apply -var-file="terraform-filename.tfvars"
 
-3. terraform destroy for PROD
+4. terraform destroy for PROD
 
 terraform destroy -var-file="terraform-filename.tfvars"
