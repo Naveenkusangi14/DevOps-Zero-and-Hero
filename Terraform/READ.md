@@ -9,9 +9,10 @@ STEP - 3 : Terraform apply # You can also see the Tag name - Terraform EC2 which
 STEP - 4 : Terraform destroy # It will remove all the running EC2 Instances.
 
 
-variable.tf and terraform.tfvars?
+variable.tf and terraform.tfvars -
 
 1. terraform init for PROD
+
 terraform init -var-file="terraform-filename(stage).tfvars"
 
 2. terraform plan for PROD
