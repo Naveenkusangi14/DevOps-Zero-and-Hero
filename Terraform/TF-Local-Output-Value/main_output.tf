@@ -22,6 +22,6 @@ output "public_ip" {
 #Output-2
 output "private_ip" {
   value = aws_instance.example.private_ip
-  sensitive = true # it will not any sensitive informtion
+  sensitive = true # it will not print  any sensitive informtion
 } 
 
