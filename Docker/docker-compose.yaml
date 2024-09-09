@@ -1,0 +1,22 @@
+version: '3.8'   # DOCKER -COMPOSE VERSION 
+services:
+  # MongoDB service setup
+  mongodb:
+    image: mongo  # Using the official MongoDB image from Docker Hub
+    container_name: mongodb  # Naming the container for easier identification
+    ports:
+      - 27017:27017  # Exposing MongoDB's default port on the host machine
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin  # Setting the MongoDB root username
+      - MONGO_INITDB_ROOT_PASSWORD=super  # Setting the MongoDB root password
+
+  # Mongo Express (MongoDB Web UI) service setup
+  mongo-express:
+    image: mongo-express  # Using the official Mongo Express image from Docker Hub
+    container_name: mongo-express  # Naming the container for easier identification
+    ports:
+      - 8081:8081  # Exposing Mongo Express's default web UI port on the host machine
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin  # Admin username to connect to MongoDB
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=super  # Admin password to connect to MongoDB
+      - ME_CONFIG_MONGODB_SERVER=mongodb  # MongoDB service name (connects to 'mongodb' )
