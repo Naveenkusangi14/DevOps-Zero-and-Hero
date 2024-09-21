@@ -1,0 +1,47 @@
+# version: '3'
+# services:
+#   redis:
+#     image:  redis
+#   db:
+#     image: postgres:15-alpine
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#   vote:
+#     image: voting-app
+#     ports:
+#       - 5000:80
+#   worker:
+#     image: worker-app
+#   result:
+#     image: result-app
+#     ports:
+#       - 5002:80
+
+
+
+version: '3'
+services:
+  redis:
+    image: redis
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+  vote:
+    build:
+      context: ./vote  # Directory containing Dockerfile for voting-app
+      dockerfile: Dockerfile  # Specify the Dockerfile if it's not named 'Dockerfile'
+    ports:
+      - 5000:80
+  worker:
+    build:
+      context: ./worker  # Directory containing Dockerfile for worker-app
+      dockerfile: Dockerfile
+  result:
+    build:
+      context: ./result  # Directory containing Dockerfile for result-app
+      dockerfile: Dockerfile
+    ports:
+      - 5002:80
